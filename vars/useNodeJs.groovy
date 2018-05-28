@@ -9,7 +9,7 @@ def call(String nodeVersion, String npmVersion = '') {
     env.PATH = "${binPath}:${env.PATH}"
 
     if (!fileExists(nodeJsToolDir)) {
-        sh "mkdir ${nodeJsToolDir}"
+        sh "mkdir -p ${nodeJsToolDir}"
     }
 
     if (!fileExists(binPath)) {
