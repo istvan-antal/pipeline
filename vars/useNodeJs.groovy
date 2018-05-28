@@ -13,7 +13,7 @@ def call(String nodeVersion, String npmVersion = '') {
     }
 
     if (!fileExists(binPath)) {
-        sh "cd ${nodeJsToolDir}; curl -LO \"https://nodejs.org/dist/v${nodeVersion}/node-v${npmVersion}-${platform}.tar.gz\""
+        sh "cd ${nodeJsToolDir}; curl -LO \"https://nodejs.org/dist/v${nodeVersion}/node-v${nodeVersion}-${platform}.tar.gz\""
         sh "cd ${nodeJsToolDir}; tar xvf \"node-v${nodeVersion}-${platform}.tar.gz\""
         sh "cd ${nodeJsToolDir}; rm \"node-v${nodeVersion}-${platform}.tar.gz\""
         sh "PATH=\"${binPath}:\$PATH\" npm i -g \"npm@${npmVersion}\";"
