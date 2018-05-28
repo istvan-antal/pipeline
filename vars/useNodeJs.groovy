@@ -1,6 +1,6 @@
 def call(String nodeVersion, String npmVersion = '') {
     def platform = 'linux-x64'
-    if (fetchCommandOutput('uname').contains('Darwin')) {
+    if (runCommand('uname').contains('Darwin')) {
         platform = 'darwin-x64'    
     }
 
