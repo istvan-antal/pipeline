@@ -1,4 +1,11 @@
-def call(String nodeVersion, String npmVersion = '') {
+def call(String nodeVersion = '', String npmVersion = '') {
+    if (!nodeVersion) {
+        nodeVersion = runCommand("python -c \"import json; data = json.load(open('package.json')); print(data['engines']['node'])\"");
+    }
+    if (!npmVersion) {
+        npmVersion = runCommand("python -c \"import json; data = json.load(open('package.json')); print(data['engines']['npm'])\"");
+    }
+
     def platform = 'linux-x64'
     if (runCommand('uname').contains('Darwin')) {
         platform = 'darwin-x64'    
